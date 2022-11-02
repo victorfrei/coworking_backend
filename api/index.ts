@@ -4,6 +4,7 @@ const app = Express()
 const port = 3000
 const prisma = new PrismaClient.PrismaClient()
 app.use(Express.json())
+app.use(Express.static('public'))
 import { v4 } from 'uuid';
 
 app.get('/api', (req, res) => {
