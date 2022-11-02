@@ -6,7 +6,7 @@
   "scripts": {
     "start:dev": "nodemon",
     "build": "rimraf ./build && tsc", 
-    "start": "npm run build && node api/index.js"
+    "start": "npm run build && node build/api/index.js"
 
 
   },
