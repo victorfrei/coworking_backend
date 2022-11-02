@@ -1,4 +1,5 @@
 {
-    "rewrites": [{ "source": "/api/(.*)", "destination": "build/api" }]
+    "rewrites": [{ "source": "/api/(.*)", "destination": "build/api" }],
+    "outputDirectory": "build/api"
   }
   
