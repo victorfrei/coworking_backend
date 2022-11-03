@@ -15,7 +15,7 @@ app.post('/', async (req, res) => {
 })
 
 app.put('/:id', async (req, res) => {
-    const projetos = await prisma.projetos.update({ where: { id: req.params.id }, data: req.body , include: {demos, showUp}});
+    const projetos = await prisma.projetos.update({ where: { id: req.params.id }, data: req.body});
     res.send(projetos);
 })
 
