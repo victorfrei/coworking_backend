@@ -4,9 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start:dev": "nodemon",
-    "build": "rimraf ./build && tsc", 
-    "start": "npm run build && node build/api/index.js"
+    "start": "node index.js"
 
 
   },
