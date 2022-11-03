@@ -5,7 +5,7 @@ const prisma = new PrismaClient.PrismaClient()
 
 
 app.get('/', async (req, res) => {
-    const projetos = await prisma.projetos.findMany({include: {demos, showUp}});
+    const projetos = await prisma.projetos.findMany({include: {demos: true, showUp: true}});
     res.send(projetos);
 })
 
