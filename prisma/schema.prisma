@@ -21,16 +21,14 @@ model Projetos {
 
 model Demos {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  src       String
-  alt       String
+  url       String
   projetoId String   @db.ObjectId
   projeto   Projetos @relation(fields: [projetoId], references: [id])
 }
 
 model ShowUp {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  src       String
-  alt       String
+  url       String
   projetoId String   @db.ObjectId
   projeto   Projetos @relation(fields: [projetoId], references: [id])
 }
