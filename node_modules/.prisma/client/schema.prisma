@@ -49,7 +49,7 @@ model Parceiros {
   nome       String
   thumbnail  String
   descricao  String
-  Empresa   Empresas? @relation(fields: [empresaId], references: [id])
+  empresa   Empresas? @relation(fields: [empresaId], references: [id])
   empresaId String?   @db.ObjectId
 }
 
