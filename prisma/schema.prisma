@@ -10,12 +10,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Login {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  nome String 
-
-}
-
 model Projetos {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   nome      String
@@ -58,13 +52,15 @@ model Usuario {
 enum Role {
   ADM
   USER
+  EMPRESAJR
+  COWORKING
 }
 
 model Sessao {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  token     String
-  usuarioId String
-  usuario   Usuario  @relation(fields: [usuarioId], references: [id])
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  token        String
+  usuarioId    String
+  usuario      Usuario  @relation(fields: [usuarioId], references: [id])
+  criadoEm     DateTime @default(now())
+  atualizadoEm DateTime @updatedAt
 }
