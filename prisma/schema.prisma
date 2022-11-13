@@ -10,6 +10,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Empresas {
+  id           String      @id @default(auto()) @map("_id") @db.ObjectId
+  nome         String
+  descricaoEmp String
+  thumbnailEmp String
+  projetos     Projetos[]
+  parceiros    Parceiros[]
+}
+
 model Projetos {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   nome      String
@@ -17,6 +26,8 @@ model Projetos {
   thumbnail String
   demos     Demos[]
   showUp    ShowUp[]
+  empresaId String   @db.ObjectId
+  empresa   Empresas @relation(fields: [empresaId], references: [id])
 }
 
 model Demos {
@@ -34,10 +45,12 @@ model ShowUp {
 }
 
 model Parceiros {
-  id        String @id @default(auto()) @map("_id") @db.ObjectId
-  nome      String
-  thumbnail String
-  descricao String
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  nome       String
+  thumbnail  String
+  descricao  String
+  Empresas   Empresas @relation(fields: [empresasId], references: [id])
+  empresasId String   @db.ObjectId
 }
 
 model Usuario {
