@@ -11,6 +11,7 @@ const projetos = require("./api/projetos")
 const parceiros = require("./api/parceiros")
 const sessao = require("./api/sessao")
 const usuarios = require("./api/usuarios")
+const empresas = require("./api/empresas")
 
 app.use("/api/projetos", projetos)
 
@@ -19,6 +20,8 @@ app.use("/api/parceiros", parceiros)
 app.use("/api/usuarios", usuarios)
 
 app.use("/api/sessao", sessao)
+
+app.use("/api/empresas", empresas)
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
