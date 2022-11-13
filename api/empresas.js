@@ -4,7 +4,7 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 app.get('/', async (req, res) => {
-    const empresas = await prisma.empresa.findMany()
+    const empresas = await prisma.empresa.findMany({ include: { projetos: true, parceiros: true } })
     res.send(empresas);
 })
 
