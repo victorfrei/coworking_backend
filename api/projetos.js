@@ -5,7 +5,7 @@ const prisma = new PrismaClient.PrismaClient()
 
 
 app.get('/', async (req, res) => {
-    const projetos = await prisma.projetos.findMany({include: {demos: true, showUp: true}});
+    const projetos = await prisma.projetos.findMany({ include: { demos: true, showUp: true, empresa: true } });
     res.send(projetos);
 })
 
@@ -15,7 +15,7 @@ app.post('/', async (req, res) => {
 })
 
 app.put('/:id', async (req, res) => {
-    const projetos = await prisma.projetos.update({ where: { id: req.params.id }, data: req.body});
+    const projetos = await prisma.projetos.update({ where: { id: req.params.id }, data: req.body });
     res.send(projetos);
 })
 

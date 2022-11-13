@@ -26,22 +26,22 @@ model Projetos {
   thumbnail String
   demos     Demos[]
   showUp    ShowUp[]
-  empresaId String   @db.ObjectId
-  empresa   Empresas @relation(fields: [empresaId], references: [id])
+  empresaId String?   @db.ObjectId
+  empresa   Empresas? @relation(fields: [empresaId], references: [id])
 }
 
 model Demos {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   url       String
-  projetoId String   @db.ObjectId
-  projeto   Projetos @relation(fields: [projetoId], references: [id])
+  projetoId String?   @db.ObjectId
+  projeto   Projetos? @relation(fields: [projetoId], references: [id])
 }
 
 model ShowUp {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   url       String
-  projetoId String   @db.ObjectId
-  projeto   Projetos @relation(fields: [projetoId], references: [id])
+  projetoId String?   @db.ObjectId
+  projeto   Projetos? @relation(fields: [projetoId], references: [id])
 }
 
 model Parceiros {
@@ -49,8 +49,8 @@ model Parceiros {
   nome       String
   thumbnail  String
   descricao  String
-  Empresa   Empresas @relation(fields: [empresaId], references: [id])
-  empresaId String   @db.ObjectId
+  Empresa   Empresas? @relation(fields: [empresaId], references: [id])
+  empresaId String?   @db.ObjectId
 }
 
 model Usuario {
@@ -72,8 +72,8 @@ enum Role {
 model Sessao {
   id           String   @id @default(auto()) @map("_id") @db.ObjectId
   token        String
-  usuarioId    String
-  usuario      Usuario  @relation(fields: [usuarioId], references: [id])
+  usuarioId    String?
+  usuario      Usuario?  @relation(fields: [usuarioId], references: [id])
   criadoEm     DateTime @default(now())
   atualizadoEm DateTime @updatedAt
 }
