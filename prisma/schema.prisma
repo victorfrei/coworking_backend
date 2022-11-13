@@ -49,8 +49,8 @@ model Parceiros {
   nome       String
   thumbnail  String
   descricao  String
-  Empresas   Empresas @relation(fields: [empresasId], references: [id])
-  empresasId String   @db.ObjectId
+  Empresa   Empresas @relation(fields: [empresaId], references: [id])
+  empresaId String   @db.ObjectId
 }
 
 model Usuario {
