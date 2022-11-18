@@ -10,7 +10,6 @@ app.use(Express.static('public'))
 const projetos = require("./api/projetos")
 const parceiros = require("./api/parceiros")
 const usuarios = require("./api/usuarios")
-const usuarios = require("./api/usuarios")
 const empresas = require("./api/empresas")
 
 app.use("/api/projetos", projetos)
