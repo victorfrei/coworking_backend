@@ -5,11 +5,11 @@ var cors = require('cors')
 
 app.use(Express.json())
 app.use(cors())
-// app.use(Express.static('public'))
+app.use(Express.static('public'))
 
 const projetos = require("./api/projetos")
 const parceiros = require("./api/parceiros")
-const sessao = require("./api/usuario")
+const usuarios = require("./api/usuarios")
 const usuarios = require("./api/usuarios")
 const empresas = require("./api/empresas")
 
@@ -18,8 +18,6 @@ app.use("/api/projetos", projetos)
 app.use("/api/parceiros", parceiros)
 
 app.use("/api/usuarios", usuarios)
-
-app.use("/api/usuario", usuario)
 
 app.use("/api/empresas", empresas)
 
