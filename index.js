@@ -9,7 +9,7 @@ app.use(cors())
 
 const projetos = require("./api/projetos")
 const parceiros = require("./api/parceiros")
-const sessao = require("./api/sessao")
+const sessao = require("./api/usuario")
 const usuarios = require("./api/usuarios")
 const empresas = require("./api/empresas")
 
@@ -19,7 +19,7 @@ app.use("/api/parceiros", parceiros)
 
 app.use("/api/usuarios", usuarios)
 
-app.use("/api/sessao", sessao)
+app.use("/api/usuario", usuario)
 
 app.use("/api/empresas", empresas)
 

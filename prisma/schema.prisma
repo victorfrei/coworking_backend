@@ -53,27 +53,27 @@ model Parceiros {
   empresaId String?   @db.ObjectId
 }
 
-model Usuario {
+model Usuarios {
   id     String   @id @default(auto()) @map("_id") @db.ObjectId
   nome   String
   email  String
   senha  String
-  sessao Sessao[]
-  Role   Role     @default(USER)
+  status Boolean @default(false)
+ // sessao Sessao[]
+  Role   Role     @default(EMPRESAJR)
 }
 
 enum Role {
   ADM
-  USER
   EMPRESAJR
   COWORKING
 }
 
-model Sessao {
-  id           String   @id @default(auto()) @map("_id") @db.ObjectId
-  token        String
-  usuarioId    String?
-  usuario      Usuario?  @relation(fields: [usuarioId], references: [id])
-  criadoEm     DateTime @default(now())
-  atualizadoEm DateTime @updatedAt
-}
+// model Sessao {
+//   id           String   @id @default(auto()) @map("_id") @db.ObjectId
+//   token        String
+//   usuarioId    String?
+//   usuario      Usuario?  @relation(fields: [usuarioId], references: [id])
+//   criadoEm     DateTime @default(now())
+//   atualizadoEm DateTime @updatedAt
+// }
